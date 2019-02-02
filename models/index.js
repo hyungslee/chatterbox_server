@@ -14,6 +14,7 @@ const sequelize = new Sequelize(
 
 db.Post = require("./post")(sequelize, Sequelize);
 db.Room = require("./room")(sequelize, Sequelize);
+db.User = require("./user")(sequelize, Sequelize);
 
 db.Room.hasMany(db.Post, {
   foreignKey: "roomid",
@@ -21,6 +22,15 @@ db.Room.hasMany(db.Post, {
 });
 db.Post.belongsTo(db.Room, {
   foreignKey: "roomid",
+  targetKey: "id"
+});
+
+db.User.hasMany(db.Post, {
+  foreignKey: "userid",
+  sourceKey: "id"
+});
+db.Post.belongsTo(db.User, {
+  foreignKey: "userid",
   targetKey: "id"
 });
 
