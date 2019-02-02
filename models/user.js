@@ -1,21 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define(
-    "post",
+    "user",
     {
       username: {
         type: DataTypes.CHAR,
         allowNull: false
       },
-      text: {
-        type: DataTypes.TEXT,
-        allowNull: false
-      },
-      roomid: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-      userid: {
-        type: DataTypes.INTEGER,
+      password: {
+        type: DataTypes.CHAR,
         allowNull: false
       }
     },

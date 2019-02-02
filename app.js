@@ -7,6 +7,7 @@ var sequelize = require("./models").sequelize;
 var indexRouter = require("./routes/index");
 var roomsRouter = require("./routes/rooms");
 var postsRouter = require("./routes/posts");
+var usersRouter = require("./routes/users");
 
 var app = express();
 
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, "./build")));
 app.use("/", indexRouter);
 app.use("/rooms", roomsRouter);
 app.use("/posts", postsRouter);
+app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
