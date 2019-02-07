@@ -26,4 +26,8 @@ router.get("/post", async (req, res, next) => {
   res.send(data);
 });
 
+router.post("/room", async (req, res, next) => {
+  const data = await Post.findAll({ where: { roomid: req.body.roomid } });
+  res.send(data);
+});
 module.exports = router;
