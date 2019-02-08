@@ -18,7 +18,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "./chatterbox_client/build")));
+app.use(express.static(path.join(__dirname, "./build")));
 
 app.use("/", indexRouter);
 app.use("/rooms", roomsRouter);
@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
 });
 
 app.use("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./chatterbox_client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./build/index.html"));
 });
 // error handler
 app.use(function(err, req, res, next) {
